@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "cucumber-cinema"
   gem.homepage = "http://github.com/ilyakatz/cucumber-cinema"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Take a series of screenshots while runing your cucumber test suite}
+  gem.description = %Q{Take a series of screenshots while runing your cucumber test suite}
   gem.email = "ilyakatz@gmail.com"
   gem.authors = ["Ilya Katz"]
   # dependencies defined in Gemfile
