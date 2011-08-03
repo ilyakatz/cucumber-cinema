@@ -4,27 +4,28 @@ Take a series of screenshots while runing your cucumber test suite
 
 == Installation
 
-1.
 Add this to you Gemfile
 
   group :test do
     gem 'cucumber-cinema'
   end
+And bundle bundle install
 
-2.
+Install wkhtmltoimage (https://github.com/csquared/IMGKit)
+
 Add this to features/support/cucumber_screenhot.rb
   After do
     embed_screenshot
   end
 
-3. Run your cucumber suite and screenshots will be generated in directory tmp/capybara
+Run your cucumber suite and screenshots will be generated in directory tmp/capybara
 
-4. If running spork, add this to the env.rb file
+If running spork, add this to the env.rb file
   Spork.each_run do
     CucumberCinema::new_movie
   end
 
-5. If you want to take a screenhot of a scenario regardless of what cinema decides, tag it with @action
+If you want to take a screenhot of a scenario regardless of what cinema decides, tag it with @action
 
 == Contributing to cucumber-cinema
  
