@@ -1,6 +1,23 @@
 = cucumber-cinema
 
-Description goes here.
+Take a series of screenshots while runing your cucumber test suite
+
+== Installation
+
+1.
+Add this to you Gemfile
+
+  group :test do
+    gem 'cucumber-cinema'
+  end
+
+2.
+Add this to features/support/cucumber_screenhot.rb
+  After do
+    embed_screenshot
+  end
+
+3. Run your cucumber suite and screenshots will be generated in directory tmp/capybara
 
 == Contributing to cucumber-cinema
  

@@ -1,6 +1,5 @@
 BODY_HASHES=[]
 SCREENSHOT_DIR_NAME="#{Time.new.strftime("%Y%m%d%H%M%S")}"
-Dir.mkdir("#{Rails.root}/tmp/capybara/#{SCREENSHOT_DIR_NAME}")
 
 module Screenshots
   if Cucumber::OS_X
@@ -10,7 +9,10 @@ module Screenshots
       if !BODY_HASHES.include?(path)
         BODY_HASHES<<path
         require 'capybara/util/save_and_open_page'
-
+        if !Dir.exist?("#{Rails.root}/tmp/capybara/#{SCREENSHOT_DIR_NAME}")
+          Dir.mkdir("#{Rails.root}/tmp/capybara") if !Dir.exist?("#{Rails.root}/tmp/capybara")
+          Dir.mkdir("#{Rails.root}/tmp/capybara/#{SCREENSHOT_DIR_NAME}")
+        end
         filename="#{SCREENSHOT_DIR_NAME}/rentini-#{rand(10**10)}"
         Capybara.save_page(body, "#{filename}.html")
         `wkhtmltoimage #{Rails.root}/tmp/capybara/#{filename}.html #{Rails.root}/tmp/capybara/#{filename}.png`

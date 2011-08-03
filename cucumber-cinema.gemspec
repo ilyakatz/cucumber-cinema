@@ -33,7 +33,7 @@ Gem::Specification.new do |s|
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.6.2}
-  s.summary = %q{Take a series of screenshots while runing your cucumber test suite}
+  s.summary = %q{Take a series of screenshots while running your cucumber test suite}
 
   if s.respond_to? :specification_version then
     s.specification_version = 3
