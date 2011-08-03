@@ -19,6 +19,13 @@ Add this to features/support/cucumber_screenhot.rb
 
 3. Run your cucumber suite and screenshots will be generated in directory tmp/capybara
 
+4. If running spork, add this to the env.rb file
+  Spork.each_run do
+    CucumberCinema::new_movie
+  end
+
+5. If you want to take a screenhot of a scenario regardless of what cinema decides, tag it with @action
+
 == Contributing to cucumber-cinema
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
