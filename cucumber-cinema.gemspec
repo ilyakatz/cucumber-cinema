@@ -5,12 +5,12 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cucumber-cinema}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ilya Katz"]
   s.date = %q{2011-08-03}
-  s.description = %q{Take a series of screenshots while runing your cucumber test suite}
+  s.description = %q{Take a series of screenshots while running your cucumber test suite}
   s.email = %q{ilyakatz@gmail.com}
   s.extra_rdoc_files = [
     "LICENSE.txt",
