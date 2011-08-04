@@ -7,13 +7,15 @@ module CucumberCinema
       else
         @location="#{Rails.root}/tmp/screenshots/"
       end
+
+      @prefix = options[:prefix].present? ? options[:prefix] : "take-"
       @pictures=[]
     end
 
     def take_screenshot(body)
       screenshot_dir_name = SCREENSHOT_DIR_NAME.first
       create_directory(screenshot_dir_name)
-      filename="#{screenshot_dir_name}/rentini-#{rand(10**10)}"
+      filename="#{screenshot_dir_name}/#{@prefix}-#{rand(10**10)}"
       Capybara.save_page(body, "#{filename}.html")
       `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{@location}/#{filename}.png`
     end

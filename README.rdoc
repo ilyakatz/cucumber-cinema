@@ -1,6 +1,9 @@
 = cucumber-cinema
 
-Take a series of screenshots while runing your cucumber test suite
+Take a series of screenshots while runing your cucumber test suite. Movie is composed of screenshots of pages as
+they appear in the end of each scenario. Cinematographer attempts to avoid duplicates by taking screenshots of
+pages that have unique urls (without integer values that may represent model ids). In addition, screen shots of
+emails with distinct subject are also taken
 
 == Installation
 
@@ -15,7 +18,7 @@ Install wkhtmltoimage (https://github.com/csquared/IMGKit)
 
 Add this to features/support/cucumber_screenhot.rb
   After do
-    embed_screenshot
+    embed_screenshot(scenario, :prefix=>"my-refix") if defined?(CucumberCinema)
   end
 
 Run your cucumber suite and screenshots will be generated in directory tmp/capybara
