@@ -3,6 +3,7 @@ module CucumberCinema
 
     #determines whether or not to take a screenshot
     def take_screenshot?(scenario, options={})
+      debugger
       current_url=options[:url]
       #always take screenshots of scenario's with tag @action
       if scenario and scenario.source_tag_names.include?("@action")

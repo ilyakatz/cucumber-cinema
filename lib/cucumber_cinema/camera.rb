@@ -7,6 +7,7 @@ module CucumberCinema
       else
         @location="#{Rails.root}/tmp/screenshots/"
       end
+      @pictures=[]
     end
 
     def take_screenshot(body)
@@ -27,6 +28,14 @@ module CucumberCinema
       Dir.mkdir("#{@location}") if !Dir.exist?(@location)
       Dir.mkdir("#{@location}/#{screenshot_dir_name}") if !Dir.exist?("#{@location}/#{screenshot_dir_name}")
     end
+#
+#    def create_theater
+#      @files=@pictures
+#      html_path="#{File.dirname(__FILE__)}/../../public/index.html.erb"
+#      html=ERB.new(File.read(html_path)).result
+#      File.open("#{@location}/index.html", 'w') { |f| f.write(doc) }
+#
+#    end
 
   end
 end
