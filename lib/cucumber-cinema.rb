@@ -30,5 +30,3 @@ module CucumberCinema
   end
 
 end
-
-World(CucumberCinema)

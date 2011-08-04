@@ -25,6 +25,11 @@ If running spork, add this to the env.rb file
     CucumberCinema::new_movie
   end
 
+
+  Spork.prefork do
+    World(CucumberCinema)
+  end
+  
 If you want to take a screenhot of a scenario regardless of what cinema decides, tag it with @action
 
 == Contributing to cucumber-cinema
