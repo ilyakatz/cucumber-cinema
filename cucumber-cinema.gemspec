@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{cucumber-cinema}
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Ilya Katz"]
-  s.date = %q{2011-08-03}
+  s.authors = [%q{Ilya Katz}]
+  s.date = %q{2011-08-04}
   s.description = %q{Take a series of screenshots while running your cucumber test suite}
   s.email = %q{ilyakatz@gmail.com}
   s.extra_rdoc_files = [
@@ -26,13 +26,25 @@ Gem::Specification.new do |s|
     "VERSION",
     "cucumber-cinema.gemspec",
     "lib/cucumber-cinema.rb",
+    "lib/cucumber_cinema/camera.rb",
+    "lib/cucumber_cinema/path_strategy.rb",
+    "public/galleria/LICENSE",
+    "public/galleria/galleria-1.2.5.js",
+    "public/galleria/galleria-1.2.5.min.js",
+    "public/galleria/themes/classic/classic-demo.html",
+    "public/galleria/themes/classic/classic-loader.gif",
+    "public/galleria/themes/classic/classic-map.png",
+    "public/galleria/themes/classic/galleria.classic.css",
+    "public/galleria/themes/classic/galleria.classic.js",
+    "public/galleria/themes/classic/galleria.classic.min.js",
+    "public/index.html.erb",
     "test/helper.rb",
     "test/test_cucumber-cinema.rb"
   ]
   s.homepage = %q{http://github.com/ilyakatz/cucumber-cinema}
-  s.licenses = ["MIT"]
-  s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.licenses = [%q{MIT}]
+  s.require_paths = [%q{lib}]
+  s.rubygems_version = %q{1.8.5}
   s.summary = %q{Take a series of screenshots while running your cucumber test suite}
 
   if s.respond_to? :specification_version then
