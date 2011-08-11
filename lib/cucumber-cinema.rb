@@ -15,18 +15,19 @@ module CucumberCinema
 end
 
 #DOESN' WORK WITH Spork Yet
-module ActionView
-  module Rendering
+if ENV['CUCUMBER_CINEMA']
+  module ActionView
+    module Rendering
 
-    alias_method :render_old, :render
+      alias_method :render_old, :render
 
-    def render(options = {}, locals = {}, &block)
-      if CucumberCinema::ViewSelectStrategy.take_screenshot?(request)
-        body = render_old(options, locals, &block)
-        ::CucumberCinema::Camera.new.take_screenshot(body)
+      def render(options = {}, locals = {}, &block)
+        if CucumberCinema::ViewSelectStrategy.take_screenshot?(request)
+          body = render_old(options, locals, &block)
+          ::CucumberCinema::Camera.new.take_screenshot(body)
+        end
+        render_old(options, locals, &block)
       end
-      render_old(options, locals, &block)
     end
   end
 end
-

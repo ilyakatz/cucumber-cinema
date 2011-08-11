@@ -22,6 +22,9 @@ Add this to features/support/cucumber_screenhot.rb
     screenshot_emails
   end
 
+Enable cucumber cinema
+  export CUCUMBER_CINEMA=true
+
 Run your cucumber suite and screenshots will be generated in directory tmp/capybara
 
 Doesn't workwith spork yet
