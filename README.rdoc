@@ -17,24 +17,14 @@ And bundle bundle install
 Install wkhtmltoimage (https://github.com/csquared/IMGKit)
 
 Add this to features/support/cucumber_screenhot.rb
+  CucumberCinema::ViewSelectStrategy::new_movie
   After do
-    embed_screenshot(scenario, :prefix=>"my-refix") if defined?(CucumberCinema)
+    screenshot_emails
   end
 
 Run your cucumber suite and screenshots will be generated in directory tmp/capybara
 
-If running spork, add this to the env.rb file
-  Spork.each_run do
-    CucumberCinema::new_movie
-  end
-
-
-  Spork.prefork do
-    World(CucumberCinema)
-  end
-  
-If you want to take a screenhot of a scenario regardless of what cinema decides, tag it with @action
-
+Doesn't workwith spork yet
 == Contributing to cucumber-cinema
  
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
