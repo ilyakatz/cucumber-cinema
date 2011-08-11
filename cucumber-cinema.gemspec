@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = [%q{Ilya Katz}]
-  s.date = %q{2011-08-04}
+  s.date = %q{2011-08-11}
   s.description = %q{Take a series of screenshots while running your cucumber test suite}
   s.email = %q{ilyakatz@gmail.com}
   s.extra_rdoc_files = [
@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     "cucumber-cinema.gemspec",
     "lib/cucumber-cinema.rb",
     "lib/cucumber_cinema/camera.rb",
-    "lib/cucumber_cinema/path_strategy.rb",
+    "lib/cucumber_cinema/view_strategy.rb",
     "public/galleria/LICENSE",
     "public/galleria/galleria-1.2.5.js",
     "public/galleria/galleria-1.2.5.min.js",
