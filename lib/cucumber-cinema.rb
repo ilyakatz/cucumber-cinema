@@ -30,4 +30,3 @@ module ActionView
   end
 end
 
-World(CucumberCinema)
