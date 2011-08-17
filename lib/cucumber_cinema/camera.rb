@@ -5,7 +5,9 @@ module CucumberCinema
       create_directory($cucumber_cinema_dir_name)
       filename="#{$cucumber_cinema_dir_name}/#{$cucumber_cinema_prefix}-#{rand(10**10)}"
       Capybara.save_page(body.to_str, "#{filename}.html")
-      `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{$cucumber_cinema_location}/#{filename}.png`
+      png_file = "#{$cucumber_cinema_location}/#{filename}.png"
+      $cucumber_cinema_action_shots<<png_file
+      `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{png_file}`
     end
 
     protected

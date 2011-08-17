@@ -18,6 +18,7 @@ module CucumberCinema
       $cucumber_cinema_emails = {}
       $cucumber_cinema_location=options[:location] || "#{Rails.root}/tmp/screenshots/"
       $cucumber_cinema_prefix = options[:prefix].present? ? options[:prefix] : "take"
+      $cucumber_cinema_action_shots=[]
     end
 
   end
