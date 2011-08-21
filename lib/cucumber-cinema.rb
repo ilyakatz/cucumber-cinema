@@ -4,11 +4,13 @@ require 'cucumber_cinema/view_strategy'
 module CucumberCinema
 
   def screenshot_emails(options)
-    current_emails = ActionMailer::Base.deliveries.uniq { |x| x.subject }
-    new_emails = current_emails.select { |k, v| !$cucumber_cinema_emails.key?(k.subject) }
-    new_emails.each { |k, v| $cucumber_cinema_emails[k.subject]=v }
-    new_emails.each_with_index do |e, i|
-      CucumberCinema::Camera.new(options).take_screenshot("<h1>#{e.subject}</h1><pre>#{e}</pre><hr />")
+    if ENV['CUCUMBER_CINEMA']
+      current_emails = ActionMailer::Base.deliveries.uniq { |x| x.subject }
+      new_emails = current_emails.select { |k, v| !$cucumber_cinema_emails.key?(k.subject) }
+      new_emails.each { |k, v| $cucumber_cinema_emails[k.subject]=v }
+      new_emails.each_with_index do |e, i|
+        CucumberCinema::Camera.new(options).take_screenshot("<h1>#{e.subject}</h1><pre>#{e}</pre><hr />")
+      end
     end
   end
 
