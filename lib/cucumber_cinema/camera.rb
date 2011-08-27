@@ -3,10 +3,12 @@ module CucumberCinema
 
     def take_screenshot(body, options={})
       create_directory($cucumber_cinema_dir_name)
-      filename="#{$cucumber_cinema_dir_name}/#{$cucumber_cinema_prefix}-#{options[:name] || rand(10**10)}"
+      name = options[:name] || rand(10**10)
+      filename="#{$cucumber_cinema_dir_name}/#{$cucumber_cinema_prefix}-#{name}"
       Capybara.save_page(body.to_str, "#{filename}.html")
       screenshot_name="#{$cucumber_cinema_location}/#{filename}.png"
-      $cucumber_cinema_all_screenshots<<screenshot_name
+      $cucumber_cinema_all_screenshots<<
+          {"thumbnail_url"=>screenshot_name, "url"=>screenshot_name, "name"=>name}
       `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{screenshot_name}`
     end
 
