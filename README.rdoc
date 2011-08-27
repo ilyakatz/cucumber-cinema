@@ -25,7 +25,10 @@ Add this to features/support/cucumber_screenhot.rb
 Enable cucumber cinema
   export CUCUMBER_CINEMA=true
 
-Run your cucumber suite and screenshots will be generated in directory tmp/capybara
+== Usage
+
+Run your cucumber suite and screenshots will be generated in directory tmp/screenshots/.
+In addition, a symbolic link to the latest screenshots will be available in tmp/latest_screenshots/
 
 Doesn't workwith spork yet
 == Contributing to cucumber-cinema

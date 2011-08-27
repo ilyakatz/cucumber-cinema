@@ -4,7 +4,7 @@ source "http://rubygems.org"
 #   gem "activesupport", ">= 2.3.5"
 
 gem "imgkit"
-gem 'cucumber-rails'
+gem 'cucumber'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.

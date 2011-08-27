@@ -13,12 +13,26 @@ module CucumberCinema
     end
 
     def self.new_movie(options={})
-      $cucumber_cinema_screenshots = {}
+      if ENV['CUCUMBER_CINEMA']
+        $cucumber_cinema_screenshots = {}
+        $cucumber_cinema_emails = {}
+        create_screenhot_dir(options)
+        $cucumber_cinema_prefix = options[:prefix].present? ? options[:prefix] : "take"
+        $cucumber_cinema_action_shots=[]
+        $cucumber_cinema_all_screenshots=[]
+      end
+    end
+
+    protected
+
+    def self.create_screenhot_dir(options)
       $cucumber_cinema_dir_name = "#{Time.new.strftime("%Y%m%d%H%M%S")}"
-      $cucumber_cinema_emails = {}
       $cucumber_cinema_location=options[:location] || "#{Rails.root}/tmp/screenshots/"
-      $cucumber_cinema_prefix = options[:prefix].present? ? options[:prefix] : "take"
-      $cucumber_cinema_action_shots=[]
+      $cucumber_cinema_link=options[:link_location] || "#{Rails.root}/tmp/latest_screenshots"
+      Dir.mkdir("#{$cucumber_cinema_location}") unless Dir.exist?($cucumber_cinema_location)
+
+      File.delete($cucumber_cinema_link) if File.exists?($cucumber_cinema_link)
+      `ln -s #{$cucumber_cinema_location}/#{$cucumber_cinema_dir_name} #{$cucumber_cinema_link} `
     end
 
   end

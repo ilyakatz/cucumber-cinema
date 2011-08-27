@@ -1,13 +1,13 @@
 module CucumberCinema
   class Camera
 
-    def take_screenshot(body)
+    def take_screenshot(body, options={})
       create_directory($cucumber_cinema_dir_name)
-      filename="#{$cucumber_cinema_dir_name}/#{$cucumber_cinema_prefix}-#{rand(10**10)}"
+      filename="#{$cucumber_cinema_dir_name}/#{$cucumber_cinema_prefix}-#{options[:name] || rand(10**10)}"
       Capybara.save_page(body.to_str, "#{filename}.html")
-      png_file = "#{$cucumber_cinema_location}/#{filename}.png"
-      $cucumber_cinema_action_shots<<png_file
-      `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{png_file}`
+      screenshot_name="#{$cucumber_cinema_location}/#{filename}.png"
+      $cucumber_cinema_all_screenshots<<screenshot_name
+      `wkhtmltoimage #{Capybara.save_and_open_page_path}/#{filename}.html #{screenshot_name}`
     end
 
     protected

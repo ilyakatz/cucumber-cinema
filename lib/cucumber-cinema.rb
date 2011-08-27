@@ -26,10 +26,20 @@ if ENV['CUCUMBER_CINEMA']
       def render(options = {}, locals = {}, &block)
         if CucumberCinema::ViewSelectStrategy.take_screenshot?(request)
           body = render_old(options, locals, &block)
-          ::CucumberCinema::Camera.new.take_screenshot(body)
+          ::CucumberCinema::Camera.new.take_screenshot(body, :name=>screenshot_name)
         end
         render_old(options, locals, &block)
       end
+
+      protected
+
+      def screenshot_name
+        name = "#{request.filtered_parameters["controller"]}-#{request.filtered_parameters["action"]}-#{request.method}"
+        name.gsub!(/[^0-9a-z\-]/i, '-')
+        name.downcase!
+        name
+      end
+
     end
   end
 end
