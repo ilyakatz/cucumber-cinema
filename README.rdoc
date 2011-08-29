@@ -22,6 +22,10 @@ Add this to features/support/cucumber_screenhot.rb
     screenshot_emails
   end
 
+  at_exit do
+   puts $cucumber_cinema_all_screenshots
+  end
+
 Enable cucumber cinema
   export CUCUMBER_CINEMA=true
 
