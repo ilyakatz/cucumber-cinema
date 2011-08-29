@@ -31,8 +31,20 @@ module CucumberCinema
       $cucumber_cinema_link=options[:link_location] || "#{Rails.root}/tmp/latest_screenshots"
       Dir.mkdir("#{$cucumber_cinema_location}") unless Dir.exist?($cucumber_cinema_location)
 
+      create_link
+      copy_assets
+    end
+
+    def self.create_link
       File.delete($cucumber_cinema_link) if File.exists?($cucumber_cinema_link)
       `ln -s #{$cucumber_cinema_location}/#{$cucumber_cinema_dir_name} #{$cucumber_cinema_link} `
+    end
+
+    def self.copy_assets
+      Dir["#{Gem.searcher.find('cucumber-cinema').full_gem_path}/public/*"].each do |asset|
+        `cp -r #{asset} #{$cucumber_cinema_location}/#{$cucumber_cinema_dir_name}/`
+      end
+
     end
 
   end

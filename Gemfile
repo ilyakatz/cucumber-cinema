@@ -5,6 +5,7 @@ source "http://rubygems.org"
 
 gem "imgkit"
 gem 'cucumber'
+gem 'mini_magick'
 
 # Add dependencies to develop your gem here.
 # Include everything needed to run rake, tests, features, etc.
