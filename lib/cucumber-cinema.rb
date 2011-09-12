@@ -2,7 +2,6 @@ require 'capybara/util/save_and_open_page'
 require 'cucumber_cinema/camera'
 require 'cucumber_cinema/view_strategy'
 require 'mini_magick'
-
 module CucumberCinema
 
   def screenshot_emails(options)
